@@ -6,12 +6,14 @@ These results came from hands-on experiments on an Intel Core i5-13600KF system 
 
 | Model | Quantization or configuration | Observed decode speed | Context note |
 |---|---|---:|---|
+| `Qwen3.6 35B-A3B` | UD-IQ3_S, 34.7B MoE | ~45 tok/s | Model advertises 262,144 tokens; supports tools, thinking, completion, and vision |
+| `Qwen3.8 27B` | IQ3_S, 27.3B dense | ~30–35 tok/s | Model advertises 262,144 tokens; runtime configured to 108,544 tokens; supports tools, thinking, completion, and vision |
 | `ornith-1.5:9b` | Q4_K_M | ~77 tok/s in an Ollama CLI test; ~90 tok/s in short API tests | Model advertises up to 262K; assistant configuration varied by test |
 | `gemma4:12b` | Local Ollama build | 56.14 tok/s | Tested at a 64K model context |
 | `gemma4:26b` | A4B | 44.91 tok/s | Tested at a 64K model context |
 | `qwen3:30b-a3b-instruct-2507` | Q4_K_M | 29.78 tok/s | Mixture-of-experts model |
-| `qwen3.8:27b` | Q3_K_XL, 32K configuration | 15.39 tok/s | Partial CPU offload |
-| `qwen3.8:27b` | Q3_K_M, 131K configuration | 6.28 tok/s | Greater CPU involvement and larger allocation |
+| `Qwen3.8 27B` (earlier build) | Q3_K_XL, 32K configuration | 15.39 tok/s | Partial CPU offload before the optimized IQ3_S build |
+| `Qwen3.8 27B` (earlier build) | Q3_K_M, 131K configuration | 6.28 tok/s | Greater CPU involvement and larger allocation |
 
 ## Interpretation
 
@@ -32,4 +34,3 @@ Future measurements will hold these variables constant:
 - Prompt-processing and decode measurements
 - GPU/CPU allocation
 - Hermes tool schema and system-prompt size
-
