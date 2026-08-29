@@ -1,0 +1,31 @@
+# Secrets and credentials
+.env
+*.env
+!*.env.example
+*token*.json
+*credentials*.json
+google_token.json
+service-account*.json
+
+# Private assistant state
+SOUL.md
+memory/
+sessions/
+logs/
+cron/
+config.yaml
+
+# Models and runtime data
+*.gguf
+models/
+ollama-data/
+
+# Logs and temporary files
+*.log
+tmp/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
