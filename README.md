@@ -65,6 +65,19 @@ I have tested dense and mixture-of-experts models across several quantizations. 
 
 Full context and caveats are in [benchmarks/model-results.md](benchmarks/model-results.md).
 
+## Reproducible benchmark tooling
+
+The repository includes [`scripts/benchmark_ollama.sh`](scripts/benchmark_ollama.sh), a Bash utility that:
+
+- Calls Ollama's local `/api/generate` endpoint with a controlled prompt
+- Supports configurable models, repetitions, and context allocation
+- Fixes the seed, temperature, thinking mode, and output-token limit
+- Captures prompt and decode throughput, token counts, load time, and total time
+- Writes sanitized CSV output without storing generated responses or private prompts
+- Calculates average decode speed across repeated runs
+
+Usage and methodology notes are in [scripts/README.md](scripts/README.md).
+
 ## Reliability testing
 
 My reusable test suite checks whether a model can:
@@ -97,7 +110,8 @@ See [SECURITY.md](SECURITY.md) for the publication rules used by this project.
 - [x] Build repeatable reliability scenarios
 - [x] Compare models under real assistant workloads
 - [ ] Publish a sanitized configuration example
-- [ ] Normalize benchmark prompts and measurement methodology
+- [x] Add a repeatable benchmark script with sanitized output
+- [ ] Run controlled comparisons with a normalized methodology
 - [ ] Add architecture and workflow screenshots
 - [ ] Add automated checks for accidental secrets
 
