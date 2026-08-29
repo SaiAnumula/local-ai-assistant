@@ -56,11 +56,12 @@ I have tested dense and mixture-of-experts models across several quantizations. 
 
 | Model | Observed decode speed | Notes |
 |---|---:|---|
+| `Qwen3.6 35B-A3B` | ~45 tok/s | 34.7B MoE, IQ3_S; tools, thinking, completion, and vision |
+| `Qwen3.8 27B` | ~30–35 tok/s | 27.3B dense, IQ3_S; 106K configured context; tools, thinking, completion, and vision |
 | `ornith-1.5:9b` | ~77–90 tok/s | Vision-capable model; results varied by test path |
 | `gemma4:12b` | ~56 tok/s | Strong speed within available memory |
 | `gemma4:26b` | ~45 tok/s | Larger model near the practical GPU-memory limit |
 | `qwen3:30b-a3b` | ~30 tok/s | Mixture-of-experts instruct model |
-| `qwen3.8:27b` Q3 | ~15 tok/s | Partial CPU offload reduced performance |
 
 Full context and caveats are in [benchmarks/model-results.md](benchmarks/model-results.md).
 
@@ -103,4 +104,3 @@ See [SECURITY.md](SECURITY.md) for the publication rules used by this project.
 ## Project status
 
 This is an active portfolio and documentation project. The private assistant contains personal data and operational configuration, so this public-facing repository focuses on architecture, reproducible tests, measured results, and lessons learned rather than mirroring the live installation.
-
