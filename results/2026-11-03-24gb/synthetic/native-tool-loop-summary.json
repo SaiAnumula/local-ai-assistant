@@ -1,0 +1,26 @@
+[
+  {
+    "model": "ornith",
+    "think": "off",
+    "passed": 4,
+    "seconds": 13.681811048998497
+  },
+  {
+    "model": "ornith",
+    "think": "on",
+    "passed": 4,
+    "seconds": 20.064744700983283
+  },
+  {
+    "model": "gemma",
+    "think": "off",
+    "passed": 5,
+    "seconds": 5.480319890004466
+  },
+  {
+    "model": "gemma",
+    "think": "on",
+    "passed": 5,
+    "seconds": 11.774379366994253
+  }
+]

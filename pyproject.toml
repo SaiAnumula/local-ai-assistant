@@ -1,0 +1,11 @@
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+# The harness records any request failure as a test result instead of crashing.
+ignore = ["SIM105"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["common", "calendar_checks", "reliability_openai", "mock_ollama"]

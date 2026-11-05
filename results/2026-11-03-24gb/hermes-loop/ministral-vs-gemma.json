@@ -1,0 +1,587 @@
+{
+  "ministral": [
+    {
+      "test": "auth-success",
+      "model": "ministral-3:14b",
+      "wall_seconds": 4.816851180017693,
+      "iterations": 1,
+      "wall_seconds_per_iteration": 4.816851180017693,
+      "iteration_seconds": [
+        4.065427666995674
+      ],
+      "tool_calls": 0,
+      "tool_seconds": 0,
+      "tool_sequence": [],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4216,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": false,
+      "stopped_correctly": false,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2129
+    },
+    {
+      "test": "auth-revoked",
+      "model": "ministral-3:14b",
+      "wall_seconds": 2.027909873984754,
+      "iterations": 1,
+      "wall_seconds_per_iteration": 2.027909873984754,
+      "iteration_seconds": [
+        2.0210535979713313
+      ],
+      "tool_calls": 0,
+      "tool_seconds": 0,
+      "tool_sequence": [],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4216,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": false,
+      "stopped_correctly": false,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2137
+    },
+    {
+      "test": "service-repair",
+      "model": "ministral-3:14b",
+      "wall_seconds": 1.3682003540161531,
+      "iterations": 1,
+      "wall_seconds_per_iteration": 1.3682003540161531,
+      "iteration_seconds": [
+        1.3614430430170614
+      ],
+      "tool_calls": 0,
+      "tool_seconds": 0,
+      "tool_sequence": [],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4216,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": false,
+      "stopped_correctly": false,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2133
+    },
+    {
+      "test": "missing-env",
+      "model": "ministral-3:14b",
+      "wall_seconds": 1.2604605850065127,
+      "iterations": 1,
+      "wall_seconds_per_iteration": 1.2604605850065127,
+      "iteration_seconds": [
+        1.2534886120120063
+      ],
+      "tool_calls": 0,
+      "tool_seconds": 0,
+      "tool_sequence": [],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4216,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": false,
+      "stopped_correctly": false,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2151
+    },
+    {
+      "test": "current-data",
+      "model": "ministral-3:14b",
+      "wall_seconds": 9.199313300021458,
+      "iterations": 4,
+      "wall_seconds_per_iteration": 2.2998283250053646,
+      "iteration_seconds": [
+        1.7145059339818545,
+        1.815885607007658,
+        1.4517218559922185,
+        4.21188649800024
+      ],
+      "tool_calls": 3,
+      "tool_seconds": 0.00010596297215670347,
+      "tool_sequence": [
+        "live-release --source ollama",
+        "helper live-release --source ollama",
+        "helper --help"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4216,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": false,
+      "stopped_correctly": false,
+      "unnecessary_actions": [
+        "live-release --source ollama",
+        "helper live-release --source ollama"
+      ],
+      "unnecessary_action_count": 2,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2472
+    },
+    {
+      "test": "calendar-read",
+      "model": "ministral-3:14b",
+      "wall_seconds": 2.879525246011326,
+      "iterations": 1,
+      "wall_seconds_per_iteration": 2.879525246011326,
+      "iteration_seconds": [
+        2.8743794249894563
+      ],
+      "tool_calls": 0,
+      "tool_seconds": 0,
+      "tool_sequence": [],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4216,
+      "calendar_event_count": 0,
+      "injected_error_recovered": false,
+      "pass_result": false,
+      "task_completed_correctly": false,
+      "stopped_correctly": false,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2166,
+      "exact_synthetic_calendar_rows_verified": 0
+    }
+  ],
+  "gemma": [
+    {
+      "test": "auth-success",
+      "model": "gemma4:12b",
+      "wall_seconds": 19.034362652979326,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 9.517181326489663,
+      "iteration_seconds": [
+        17.626216085016495,
+        0.6322363119979855
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 0.000174492975929752,
+      "tool_sequence": [
+        "helper auth"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2622
+    },
+    {
+      "test": "auth-revoked",
+      "model": "gemma4:12b",
+      "wall_seconds": 2.9718954589916393,
+      "iterations": 3,
+      "wall_seconds_per_iteration": 0.9906318196638798,
+      "iteration_seconds": [
+        0.44213691097684205,
+        0.5942881980154198,
+        1.9296127840061672
+      ],
+      "tool_calls": 2,
+      "tool_seconds": 5.983098526485264e-05,
+      "tool_sequence": [
+        "ls -R",
+        "helper recover"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [
+        "ls -R"
+      ],
+      "unnecessary_action_count": 1,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2774
+    },
+    {
+      "test": "service-repair",
+      "model": "gemma4:12b",
+      "wall_seconds": 3.0691008209832944,
+      "iterations": 4,
+      "wall_seconds_per_iteration": 0.7672752052458236,
+      "iteration_seconds": [
+        0.37600469100289047,
+        0.4750449699931778,
+        0.5254779310198501,
+        1.685871503985254
+      ],
+      "tool_calls": 3,
+      "tool_seconds": 8.732997230254114e-05,
+      "tool_sequence": [
+        "helper service status",
+        "helper service repair",
+        "helper service verify"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2738
+    },
+    {
+      "test": "missing-env",
+      "model": "gemma4:12b",
+      "wall_seconds": 1.1273987719905563,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 0.5636993859952781,
+      "iteration_seconds": [
+        0.4200534260016866,
+        0.7014017409819644
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 2.319799386896193e-05,
+      "tool_sequence": [
+        "helper config"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2661
+    },
+    {
+      "test": "current-data",
+      "model": "gemma4:12b",
+      "wall_seconds": 1.2878125490096863,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 0.6439062745048432,
+      "iteration_seconds": [
+        0.7684192850138061,
+        0.5153686679841485
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 0.3583258810103871,
+      "tool_sequence": [
+        "live-release"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2689
+    },
+    {
+      "test": "calendar-read",
+      "model": "gemma4:12b",
+      "wall_seconds": 8.646206160978181,
+      "iterations": 7,
+      "wall_seconds_per_iteration": 1.2351723087111688,
+      "iteration_seconds": [
+        2.085689908009954,
+        0.4880987799842842,
+        0.4517901490035001,
+        0.6432741740136407,
+        0.6057787689787801,
+        1.268148036004277,
+        3.099300191999646
+      ],
+      "tool_calls": 6,
+      "tool_seconds": 0.0002130399807356298,
+      "tool_sequence": [
+        "calendar-read --help",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read calendars",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read events --calendar fall-2026 --page page-2"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": 10,
+      "injected_error_recovered": true,
+      "pass_result": false,
+      "task_completed_correctly": false,
+      "stopped_correctly": true,
+      "unnecessary_actions": [
+        "calendar-read events --calendar fall-2026"
+      ],
+      "unnecessary_action_count": 1,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 4198,
+      "exact_synthetic_calendar_rows_verified": 9
+    }
+  ],
+  "gemma-medium": [
+    {
+      "test": "auth-success",
+      "model": "gemma4:12b",
+      "wall_seconds": 6.818954047019361,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 3.4094770235096803,
+      "iteration_seconds": [
+        4.198733594006626,
+        1.1127263199887238
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 3.379798727110028e-05,
+      "tool_sequence": [
+        "helper auth"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": true,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 278,
+      "last_prompt_tokens": 2759
+    },
+    {
+      "test": "auth-revoked",
+      "model": "gemma4:12b",
+      "wall_seconds": 6.382297314994503,
+      "iterations": 3,
+      "wall_seconds_per_iteration": 2.127432438331501,
+      "iteration_seconds": [
+        2.027604675007751,
+        2.805056044977391,
+        1.543589617998805
+      ],
+      "tool_calls": 2,
+      "tool_seconds": 6.853201193735003e-05,
+      "tool_sequence": [
+        "ls -R",
+        "helper recover"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": true,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [
+        "ls -R"
+      ],
+      "unnecessary_action_count": 1,
+      "reasoning_chars": 316,
+      "last_prompt_tokens": 3178
+    },
+    {
+      "test": "service-repair",
+      "model": "gemma4:12b",
+      "wall_seconds": 4.24951199098723,
+      "iterations": 4,
+      "wall_seconds_per_iteration": 1.0623779977468075,
+      "iteration_seconds": [
+        1.2391740190214477,
+        0.7028808659815695,
+        0.6801781830145046,
+        1.6224077839870006
+      ],
+      "tool_calls": 3,
+      "tool_seconds": 9.461300214752555e-05,
+      "tool_sequence": [
+        "helper service status",
+        "helper service repair",
+        "helper service verify"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": true,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 63,
+      "last_prompt_tokens": 2887
+    },
+    {
+      "test": "missing-env",
+      "model": "gemma4:12b",
+      "wall_seconds": 4.07832880501519,
+      "iterations": 3,
+      "wall_seconds_per_iteration": 1.3594429350050632,
+      "iteration_seconds": [
+        1.6178843770176172,
+        1.3310707279888447,
+        1.1224747849919368
+      ],
+      "tool_calls": 2,
+      "tool_seconds": 8.076900849118829e-05,
+      "tool_sequence": [
+        "helper config",
+        "helper service status"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": true,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": true,
+      "stopped_correctly": false,
+      "unnecessary_actions": [
+        "helper service status"
+      ],
+      "unnecessary_action_count": 1,
+      "reasoning_chars": 262,
+      "last_prompt_tokens": 2949
+    },
+    {
+      "test": "current-data",
+      "model": "gemma4:12b",
+      "wall_seconds": 2.4460354699986055,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 1.2230177349993028,
+      "iteration_seconds": [
+        1.2554303359938785,
+        1.185068382997997
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 0.24416374700376764,
+      "tool_sequence": [
+        "live-release"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": true,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 222,
+      "last_prompt_tokens": 2762
+    },
+    {
+      "test": "calendar-read",
+      "model": "gemma4:12b",
+      "wall_seconds": 22.762216375005664,
+      "iterations": 7,
+      "wall_seconds_per_iteration": 3.2517451964293804,
+      "iteration_seconds": [
+        3.538679138990119,
+        2.0247393700119574,
+        0.9835882890038192,
+        0.8703321009816136,
+        0.9253779010032304,
+        5.9903863570070826,
+        8.42283816501731
+      ],
+      "tool_calls": 6,
+      "tool_seconds": 0.00024518699501641095,
+      "tool_sequence": [
+        "calendar-read --help",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read calendars",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read events --calendar fall-2026 --page page-2"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": true,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 5898,
+      "calendar_event_count": 10,
+      "injected_error_recovered": true,
+      "pass_result": false,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [
+        "calendar-read events --calendar fall-2026"
+      ],
+      "unnecessary_action_count": 1,
+      "reasoning_chars": 2046,
+      "last_prompt_tokens": 5153,
+      "exact_synthetic_calendar_rows_verified": 10
+    }
+  ]
+}

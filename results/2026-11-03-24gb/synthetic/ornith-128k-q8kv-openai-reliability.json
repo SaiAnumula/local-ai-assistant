@@ -1,0 +1,226 @@
+{
+  "model": "ornith-benchmark:9b-q4-128k",
+  "think": false,
+  "num_ctx": 131072,
+  "synthetic_tools": true,
+  "protocol": "openai-compatible",
+  "reasoning_effort": "none",
+  "tests": [
+    {
+      "test": "auth-success",
+      "pass": true,
+      "tool_sequence": [
+        "google_auth"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 174,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 452,
+          "prompt_eval_duration": null,
+          "eval_count": 44,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "tool_calls",
+          "wall_seconds": 0.5970186030026525,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        },
+        {
+          "prompt_eval_count": 524,
+          "prompt_eval_duration": null,
+          "eval_count": 37,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "stop",
+          "wall_seconds": 0.5056222290004371,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        }
+      ],
+      "source_live": false
+    },
+    {
+      "test": "auth-revoked",
+      "pass": true,
+      "tool_sequence": [
+        "google_recover"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 1458,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 463,
+          "prompt_eval_duration": null,
+          "eval_count": 52,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "tool_calls",
+          "wall_seconds": 0.6969124769966584,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        },
+        {
+          "prompt_eval_count": 561,
+          "prompt_eval_duration": null,
+          "eval_count": 333,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "stop",
+          "wall_seconds": 3.9374569869978586,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        }
+      ],
+      "source_live": false
+    },
+    {
+      "test": "service-repair",
+      "pass": true,
+      "tool_sequence": [
+        "service_status",
+        "service_repair",
+        "service_verify"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 900,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 462,
+          "prompt_eval_duration": null,
+          "eval_count": 52,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "tool_calls",
+          "wall_seconds": 0.7139968760020565,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        },
+        {
+          "prompt_eval_count": 554,
+          "prompt_eval_duration": null,
+          "eval_count": 54,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "tool_calls",
+          "wall_seconds": 0.7086254589958116,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        },
+        {
+          "prompt_eval_count": 639,
+          "prompt_eval_duration": null,
+          "eval_count": 42,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "tool_calls",
+          "wall_seconds": 0.5761189559998456,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        },
+        {
+          "prompt_eval_count": 709,
+          "prompt_eval_duration": null,
+          "eval_count": 228,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "stop",
+          "wall_seconds": 2.7501342140021734,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        }
+      ],
+      "source_live": false
+    },
+    {
+      "test": "missing-env",
+      "pass": true,
+      "tool_sequence": [
+        "config_check"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 992,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 465,
+          "prompt_eval_duration": null,
+          "eval_count": 44,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "tool_calls",
+          "wall_seconds": 0.8368489520071307,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        },
+        {
+          "prompt_eval_count": 557,
+          "prompt_eval_duration": null,
+          "eval_count": 216,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "stop",
+          "wall_seconds": 2.6362414789909963,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        }
+      ],
+      "source_live": false
+    },
+    {
+      "test": "current-data",
+      "pass": true,
+      "tool_sequence": [
+        "web_fetch"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 241,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 476,
+          "prompt_eval_duration": null,
+          "eval_count": 58,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "tool_calls",
+          "wall_seconds": 0.7568013059935765,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        },
+        {
+          "prompt_eval_count": 657,
+          "prompt_eval_duration": null,
+          "eval_count": 117,
+          "eval_duration": null,
+          "load_duration": null,
+          "total_duration": null,
+          "done_reason": "stop",
+          "wall_seconds": 1.4627157009963412,
+          "wire_reasoning_chars": 0,
+          "raw_think_delimiter": false
+        }
+      ],
+      "source_live": true
+    }
+  ]
+}

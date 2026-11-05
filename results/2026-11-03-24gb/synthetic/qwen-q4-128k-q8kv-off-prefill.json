@@ -1,0 +1,56 @@
+{
+  "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+  "think": false,
+  "num_ctx": 131072,
+  "synthetic_prompt_chars": 63151,
+  "results": [
+    {
+      "prompt_eval_count": 26942,
+      "prompt_eval_duration": 77335709000,
+      "eval_count": 2,
+      "eval_duration": 30221000,
+      "load_duration": 1161807,
+      "total_duration": 77461275695,
+      "done_reason": "stop",
+      "stage": "fresh-prefix",
+      "wall_seconds": 77.48513155999535,
+      "response_chars": 5,
+      "thinking_chars": 0,
+      "reasoning_in_response": false,
+      "raw_exact_answer": true,
+      "expected_answer": true
+    },
+    {
+      "prompt_eval_count": 26942,
+      "prompt_eval_duration": 81979000,
+      "eval_count": 2,
+      "eval_duration": 30012000,
+      "load_duration": 1056432,
+      "total_duration": 130459941,
+      "done_reason": "stop",
+      "stage": "same-prefix",
+      "wall_seconds": 0.14824555499944836,
+      "response_chars": 5,
+      "thinking_chars": 0,
+      "reasoning_in_response": false,
+      "raw_exact_answer": true,
+      "expected_answer": true
+    },
+    {
+      "prompt_eval_count": 26953,
+      "prompt_eval_duration": 1799473000,
+      "eval_count": 3,
+      "eval_duration": 59918000,
+      "load_duration": 668114,
+      "total_duration": 1876210401,
+      "done_reason": "stop",
+      "stage": "incremental-tool-result",
+      "wall_seconds": 1.8992201539949747,
+      "response_chars": 8,
+      "thinking_chars": 0,
+      "reasoning_in_response": false,
+      "raw_exact_answer": true,
+      "expected_answer": true
+    }
+  ]
+}

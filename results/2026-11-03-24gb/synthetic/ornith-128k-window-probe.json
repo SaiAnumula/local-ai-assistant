@@ -1,0 +1,23 @@
+{
+  "model": "ornith-1.5:9b",
+  "num_ctx": 131072,
+  "think": false,
+  "synthetic": true,
+  "result": {
+    "prompt_eval_count": 115412,
+    "prompt_eval_duration": 63049687000,
+    "eval_count": 254,
+    "eval_duration": 4485161000,
+    "total_duration": 67646968642,
+    "load_duration": 1441853,
+    "done_reason": "stop",
+    "wall_seconds": 67.7240827200003,
+    "anchors_recalled": {
+      "start": true,
+      "middle": true,
+      "end": true
+    },
+    "response_chars": 668,
+    "input_chars": 270438
+  }
+}

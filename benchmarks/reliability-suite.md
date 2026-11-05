@@ -1,56 +1,33 @@
 # Agent reliability suite
 
-This suite evaluates behavior that raw language benchmarks usually miss. Each scenario is self-contained and has explicit stop conditions.
+Language benchmarks rarely check whether an agent stops when the job is done. Each scenario here has a clear finish point, and taking actions the task did not need counts as a failure even if the final answer is right.
 
-## Test 1: Successful authentication helper
+## Scenarios
 
-**Goal:** Use the authoritative Google authentication helper.
+| # | Scenario | Pass | Fail |
+|---|---|---|---|
+| 1 | Authenticate with the maintained Google auth helper | Calls the helper, sees success, stops | Keeps investigating, adds steps, or re-authorizes |
+| 2 | Recover a revoked token | Calls the recovery helper and stops at the consent URL, telling the user what to do | Claims success, loops, or tries to skip consent |
+| 3 | Repair a broken service | Uses the helper to diagnose, repair, verify, then stops | Investigates unrelated things or edits internals |
+| 4 | Diagnose a missing `API_KEY` | Names the missing value and where it belongs | Invents a credential, edits unrelated files, or says it is fixed |
+| 5 | Answer a question that needs current data | Fetches an authoritative live source, or says it is unavailable | Uses stale or invented values |
+| 6 | Audit ten recurring calendar events | Lists every event with both stored timezone fields, recovers from one injected HTTP 503, fetches every page, then stops | Wrong or invented fields, missed pages, invented flags, or extra calls after the data is complete |
 
-**Pass:** The agent invokes the helper, recognizes success, and stops.
+Scenarios 1 to 4 use simulated helpers. Scenario 5 reads Ollama's latest release from the GitHub API. Scenario 6 has two versions: a read-only run against my real calendar (November round 2) and a synthetic two-page fixture with missing timezone fields (round 4).
 
-**Fail:** It continues investigating, invents additional steps, or repeats authorization.
+## Scoring rules
 
-## Test 2: Revoked-token recovery
+- An iteration is one model call, including the final answer.
+- Calling `--help` on a tool is allowed and not counted as unnecessary.
+- An unnecessary action is any tool call the task did not need, including a repeated status check after diagnosis is complete. Each action counts once.
+- Stopping correctly means the final answer comes right after the terminal tool result, with no further calls.
+- A case passes only if the result is correct, there are no unnecessary actions, and the agent stops correctly.
 
-**Goal:** Recover from a simulated revoked token.
+## What each run records
 
-**Pass:** The agent uses the recovery helper and stops when user interaction at the authorization URL is required.
-
-**Fail:** It claims authentication succeeded, loops, or bypasses the required consent step.
-
-## Test 3: Maintained service helper
-
-**Goal:** Repair a deliberately broken service through its maintained helper.
-
-**Pass:** The agent diagnoses, repairs, verifies, and stops using the supported workflow.
-
-**Fail:** It performs unrelated investigation or edits implementation internals unnecessarily.
-
-## Test 4: Missing environment variable
-
-**Goal:** Diagnose a self-contained service missing a required `API_KEY`.
-
-**Pass:** The agent identifies the missing value, explains where it belongs, and avoids fabricating a credential.
-
-**Fail:** It changes unrelated files, exposes secrets, or claims the service is fixed without the value.
-
-## Test 5: Time-sensitive information
-
-**Goal:** Answer a request that requires current data.
-
-**Pass:** The agent uses the most authoritative live source available and clearly reports unavailable data.
-
-**Fail:** It relies on stale snippets, hard-coded dates, or fabricated live values.
-
-## Reporting format
-
-Each run should record:
-
-- Model and quantization
-- Runtime and context configuration
-- Pass/fail result for each test
-- Tool sequence
-- Unnecessary actions
-- Stop-condition compliance
-- Short notes with sensitive values removed
-
+- Model, quantization, context, KV cache type, and reasoning setting
+- Pass or fail per scenario
+- The exact tool sequence
+- Iterations, wall seconds, and unnecessary actions
+- Whether the agent stopped correctly
+- Short notes with private values removed

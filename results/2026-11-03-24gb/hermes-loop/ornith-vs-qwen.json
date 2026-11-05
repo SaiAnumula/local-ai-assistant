@@ -1,0 +1,485 @@
+{
+  "ornith-matched": [
+    {
+      "test": "auth-success",
+      "model": "ornith-benchmark:9b-q4-128k",
+      "wall_seconds": 3.4081279799866024,
+      "iterations": 3,
+      "wall_seconds_per_iteration": 1.1360426599955342,
+      "iteration_seconds": [
+        1.8704579650075175,
+        0.4343705859791953,
+        0.45591908899950795
+      ],
+      "tool_calls": 2,
+      "tool_seconds": 5.2143033826723695e-05,
+      "tool_sequence": [
+        "helper --help",
+        "helper auth"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4246,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2649
+    },
+    {
+      "test": "auth-revoked",
+      "model": "ornith-benchmark:9b-q4-128k",
+      "wall_seconds": 6.864113237999845,
+      "iterations": 7,
+      "wall_seconds_per_iteration": 0.9805876054285493,
+      "iteration_seconds": [
+        0.6121636099996977,
+        0.7639745099877473,
+        0.6621804150054231,
+        0.9289770820178092,
+        0.7655012180039193,
+        0.44374453599448316,
+        2.6812676639819983
+      ],
+      "tool_calls": 6,
+      "tool_seconds": 0.0001879909832496196,
+      "tool_sequence": [
+        "helper --help",
+        "helper service status",
+        "helper config",
+        "helper recover",
+        "helper service verify",
+        "helper auth"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4246,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": true,
+      "stopped_correctly": false,
+      "unnecessary_actions": [
+        "helper service status",
+        "helper config",
+        "helper service verify",
+        "helper auth"
+      ],
+      "unnecessary_action_count": 4,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 3359
+    },
+    {
+      "test": "service-repair",
+      "model": "ornith-benchmark:9b-q4-128k",
+      "wall_seconds": 6.146121071011294,
+      "iterations": 12,
+      "wall_seconds_per_iteration": 0.5121767559176078,
+      "iteration_seconds": [
+        0.42950175298028626,
+        0.4385634759964887,
+        0.4093798640242312,
+        0.43903132097329944,
+        0.46041024100850336,
+        0.4728376940183807,
+        0.5636977119720541,
+        0.46550701500382274,
+        0.4923006940225605,
+        0.43681867799023166,
+        0.4457730319991242,
+        1.087640909012407
+      ],
+      "tool_calls": 11,
+      "tool_seconds": 0.0003753729979507625,
+      "tool_sequence": [
+        "helper --help",
+        "helper service status",
+        "helper config",
+        "helper config",
+        "helper auth",
+        "helper recover",
+        "which helper && type helper && command -v helper",
+        "pwd",
+        "helper service status",
+        "helper service repair",
+        "helper service verify"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4246,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": false,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [
+        "helper config",
+        "helper config",
+        "helper auth",
+        "helper recover",
+        "which helper && type helper && command -v helper",
+        "pwd",
+        "helper service status (repeat)"
+      ],
+      "unnecessary_action_count": 7,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 4139
+    },
+    {
+      "test": "missing-env",
+      "model": "ornith-benchmark:9b-q4-128k",
+      "wall_seconds": 4.793871808011318,
+      "iterations": 4,
+      "wall_seconds_per_iteration": 1.1984679520028294,
+      "iteration_seconds": [
+        0.7479086309904233,
+        1.0329740730230696,
+        0.7145229979942087,
+        2.291722153982846
+      ],
+      "tool_calls": 4,
+      "tool_seconds": 0.00011546403402462602,
+      "tool_sequence": [
+        "helper --help",
+        "helper config --help",
+        "helper service status",
+        "helper config"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4246,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2953
+    },
+    {
+      "test": "current-data",
+      "model": "ornith-benchmark:9b-q4-128k",
+      "wall_seconds": 2.509344460006105,
+      "iterations": 4,
+      "wall_seconds_per_iteration": 0.6273361150015262,
+      "iteration_seconds": [
+        0.6400947960210033,
+        0.4439527159847785,
+        0.8053720919997431,
+        0.6155897120188456
+      ],
+      "tool_calls": 3,
+      "tool_seconds": 0.18925281896372326,
+      "tool_sequence": [
+        "live-release --help",
+        "helper --help",
+        "live-release"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4246,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 2879
+    },
+    {
+      "test": "calendar-read",
+      "model": "ornith-benchmark:9b-q4-128k",
+      "wall_seconds": 12.293089949002024,
+      "iterations": 7,
+      "wall_seconds_per_iteration": 1.7561557070002891,
+      "iteration_seconds": [
+        0.862668946996564,
+        0.7827642319898587,
+        0.7905253030185122,
+        1.2158861799980514,
+        1.506501762982225,
+        1.4011872740229592,
+        5.729096368973842
+      ],
+      "tool_calls": 6,
+      "tool_seconds": 1.0074736420065165,
+      "tool_sequence": [
+        "calendar-read --help",
+        "calendar-read calendars",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read events --calendar fall-2026 --page null",
+        "calendar-read events --calendar fall-2026 --page 2"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 4246,
+      "calendar_event_count": 10,
+      "calendar_get_requests": [
+        {
+          "method": "GET",
+          "resource": "calendarList"
+        },
+        {
+          "method": "GET",
+          "resource": "events"
+        },
+        {
+          "method": "GET",
+          "resource": "events"
+        },
+        {
+          "method": "GET",
+          "resource": "events"
+        }
+      ],
+      "injected_error_recovered": true,
+      "pass_result": false,
+      "task_completed_correctly": true,
+      "stopped_correctly": false,
+      "unnecessary_actions": [
+        "calendar-read events --calendar fall-2026 --page null",
+        "calendar-read events --calendar fall-2026 --page 2"
+      ],
+      "unnecessary_action_count": 2,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 4471,
+      "exact_calendar_rows_verified": 10
+    }
+  ],
+  "qwen-matched": [
+    {
+      "test": "auth-success",
+      "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+      "wall_seconds": 67.50602175699896,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 33.75301087849948,
+      "iteration_seconds": [
+        65.32073356999899,
+        1.5255226390145253
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 7.010699482634664e-05,
+      "tool_sequence": [
+        "helper auth"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 9039,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 3600
+    },
+    {
+      "test": "auth-revoked",
+      "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+      "wall_seconds": 3.8021050969837233,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 1.9010525484918617,
+      "iteration_seconds": [
+        0.9976871570106596,
+        2.7974510369822383
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 3.503600601106882e-05,
+      "tool_sequence": [
+        "helper recover"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 9039,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 3609
+    },
+    {
+      "test": "service-repair",
+      "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+      "wall_seconds": 10.462360492994776,
+      "iterations": 5,
+      "wall_seconds_per_iteration": 2.092472098598955,
+      "iteration_seconds": [
+        1.4945157199981622,
+        2.2873853170021903,
+        2.2994450720143504,
+        2.1533067550044507,
+        2.22067966798204
+      ],
+      "tool_calls": 4,
+      "tool_seconds": 0.0001384949719067663,
+      "tool_sequence": [
+        "helper --help",
+        "helper service status",
+        "helper service repair",
+        "helper service verify"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 9039,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 3898
+    },
+    {
+      "test": "missing-env",
+      "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+      "wall_seconds": 5.397949095000513,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 2.6989745475002564,
+      "iteration_seconds": [
+        1.7082636300183367,
+        3.6828362359956373
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 2.9777991585433483e-05,
+      "tool_sequence": [
+        "helper config"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 9039,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 3616
+    },
+    {
+      "test": "current-data",
+      "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+      "wall_seconds": 5.940103205008199,
+      "iterations": 2,
+      "wall_seconds_per_iteration": 2.9700516025040997,
+      "iteration_seconds": [
+        2.4687726109987125,
+        3.464907465997385
+      ],
+      "tool_calls": 1,
+      "tool_seconds": 0.7395600969903171,
+      "tool_sequence": [
+        "live-release"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 9039,
+      "calendar_event_count": null,
+      "calendar_get_requests": null,
+      "injected_error_recovered": null,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 3636
+    },
+    {
+      "test": "calendar-read",
+      "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+      "wall_seconds": 34.88115695299348,
+      "iterations": 5,
+      "wall_seconds_per_iteration": 6.976231390598696,
+      "iteration_seconds": [
+        5.045792129007168,
+        3.4698379429755732,
+        2.9597973780182656,
+        3.1092304019839503,
+        20.291901470016455
+      ],
+      "tool_calls": 4,
+      "tool_seconds": 0.9434725640167017,
+      "tool_sequence": [
+        "calendar-read --help",
+        "calendar-read calendars",
+        "calendar-read events --calendar fall-2026",
+        "calendar-read events --calendar fall-2026"
+      ],
+      "context": 131072,
+      "cache": "q8_0",
+      "thinking": false,
+      "tool_schema_count": 4,
+      "system_prompt_chars": 9039,
+      "calendar_event_count": 10,
+      "calendar_get_requests": [
+        {
+          "method": "GET",
+          "resource": "calendarList"
+        },
+        {
+          "method": "GET",
+          "resource": "events"
+        }
+      ],
+      "injected_error_recovered": true,
+      "pass_result": true,
+      "task_completed_correctly": true,
+      "stopped_correctly": true,
+      "unnecessary_actions": [],
+      "unnecessary_action_count": 0,
+      "reasoning_chars": 0,
+      "last_prompt_tokens": 5253,
+      "exact_calendar_rows_verified": 10
+    }
+  ]
+}

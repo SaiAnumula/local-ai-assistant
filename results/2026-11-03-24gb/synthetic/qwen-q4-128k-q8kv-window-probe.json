@@ -1,0 +1,23 @@
+{
+  "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+  "num_ctx": 131072,
+  "think": false,
+  "synthetic": true,
+  "result": {
+    "prompt_eval_count": 115412,
+    "prompt_eval_duration": 378640396000,
+    "eval_count": 47,
+    "eval_duration": 1464418000,
+    "total_duration": 380415792688,
+    "load_duration": 2142273,
+    "done_reason": "stop",
+    "wall_seconds": 380.48851161799394,
+    "anchors_recalled": {
+      "start": true,
+      "middle": true,
+      "end": true
+    },
+    "response_chars": 77,
+    "input_chars": 270438
+  }
+}

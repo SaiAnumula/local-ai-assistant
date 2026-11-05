@@ -1,0 +1,4 @@
+run,timestamp_utc,model,num_ctx,prompt_tokens,decode_tokens,prompt_tok_s,decode_tok_s,total_seconds,load_seconds,think,prompt_seconds,decode_seconds
+"1","20261103T163709Z","hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M","131072",32,256,"14.730686229017978","35.284010788637616","55.806636793","46.369385828","false","2.172336","7.255411"
+"2","20261103T163709Z","hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M","131072",32,256,"310.56202020594145","37.14944743824811","7.062725757","0.008084856","false","0.103039","6.891085"
+"3","20261103T163709Z","hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M","131072",32,256,"360.41718288919424","37.888536956345746","6.848069176","0.000500908","false","0.088786","6.756661"
