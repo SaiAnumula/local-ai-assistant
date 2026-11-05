@@ -1,29 +1,79 @@
 #!/usr/bin/env python3
-"""Runs scripts/benchmark_ollama.sh and samples /api/ps, /proc/meminfo, memory PSI, and amdgpu VRAM use
-once per second while it runs.
-Usage: run_benchmark.py MODEL PORT THINK(true|false) LABEL [NUM_CTX]
+"""Run benchmark_ollama.sh with memory telemetry.
 
-Writes JSON to $BENCH_OUT_DIR (default: results/raw)."""
-import sys,subprocess,time,json,urllib.request,pathlib
-import os;OUT=pathlib.Path(os.environ.get('BENCH_OUT_DIR','results/raw'));OUT.mkdir(parents=True,exist_ok=True)
-model,port,think,label=sys.argv[1:5]
-num_ctx=sys.argv[5] if len(sys.argv)>5 else '131072'
-root=OUT
-cmd=['bash',str(pathlib.Path(__file__).resolve().parents[1]/'benchmark_ollama.sh'),'--model',model,'--endpoint','http://127.0.0.1:'+port,'--runs','3','--num-ctx',num_ctx,'--think',think,'--output',str(root/(label+'.csv'))]
-p=subprocess.Popen(cmd)
-samples=[]
-while p.poll() is None:
- s={'time':time.time()}
- try:
-  with urllib.request.urlopen('http://127.0.0.1:'+port+'/api/ps',timeout=2) as r:
-   s['models']=[{k:m.get(k) for k in ('name','size','size_vram','context_length')} for m in json.load(r).get('models',[])]
-  mem={line.split(':')[0]:int(line.split()[1]) for line in pathlib.Path('/proc/meminfo').read_text().splitlines() if len(line.split())>1 and line.split()[1].isdigit()}
-  s['memory_kib']={k:mem[k] for k in ('MemTotal','MemAvailable','SwapTotal','SwapFree')}
-  s['memory_pressure']=pathlib.Path('/proc/pressure/memory').read_text()
-  s['vram_used_bytes']=int(pathlib.Path('/sys/class/drm/card1/device/mem_info_vram_used').read_text())
- except Exception as e:s['telemetry_error']=type(e).__name__
- samples.append(s)
- time.sleep(1)
-(root/(label+'-telemetry.json')).write_text(json.dumps(samples,indent=2))
-print('benchmark_exit',p.returncode,'telemetry_samples',len(samples),flush=True)
-sys.exit(p.returncode)
+Starts scripts/benchmark_ollama.sh (three runs) and, once per second while it runs, records
+the models Ollama has loaded with their VRAM share, RAM and swap from /proc/meminfo, memory
+pressure (PSI), and amdgpu VRAM in use.
+
+Usage: run_benchmark.py MODEL PORT THINK LABEL [NUM_CTX]
+  NUM_CTX defaults to 131072. Writes $BENCH_OUT_DIR/LABEL.csv and LABEL-telemetry.json.
+"""
+
+from __future__ import annotations
+
+import argparse
+import pathlib
+import subprocess
+import sys
+import time
+
+from common import get_json, memory_pressure, ollama_url, output_dir, read_meminfo, vram_used_bytes, write_json
+
+BENCHMARK_SCRIPT = pathlib.Path(__file__).resolve().parents[1] / "benchmark_ollama.sh"
+MEMORY_FIELDS = ("MemTotal", "MemAvailable", "SwapTotal", "SwapFree")
+MODEL_FIELDS = ("name", "size", "size_vram", "context_length")
+
+
+def sample(port: str) -> dict:
+    row: dict = {"time": time.time()}
+    try:
+        loaded = get_json(ollama_url(port, "/api/ps"), timeout=2).get("models", [])
+        row["models"] = [{key: model.get(key) for key in MODEL_FIELDS} for model in loaded]
+        meminfo = read_meminfo()
+        row["memory_kib"] = {key: meminfo[key] for key in MEMORY_FIELDS}
+        row["memory_pressure"] = memory_pressure()
+        row["vram_used_bytes"] = vram_used_bytes()
+    except Exception as error:
+        row["telemetry_error"] = type(error).__name__
+    return row
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("model")
+    parser.add_argument("port")
+    parser.add_argument("think", choices=["true", "false"])
+    parser.add_argument("label")
+    parser.add_argument("num_ctx", nargs="?", default="131072")
+    args = parser.parse_args()
+    out = output_dir()
+
+    command = [
+        "bash",
+        str(BENCHMARK_SCRIPT),
+        "--model",
+        args.model,
+        "--endpoint",
+        ollama_url(args.port, ""),
+        "--runs",
+        "3",
+        "--num-ctx",
+        args.num_ctx,
+        "--think",
+        args.think,
+        "--output",
+        str(out / f"{args.label}.csv"),
+    ]
+    process = subprocess.Popen(command)
+    samples = []
+    while process.poll() is None:
+        samples.append(sample(args.port))
+        time.sleep(1)
+
+    write_json(out / f"{args.label}-telemetry.json", samples)
+    print("benchmark_exit", process.returncode, "telemetry_samples", len(samples), flush=True)
+    sys.exit(process.returncode)
+
+
+if __name__ == "__main__":
+    main()

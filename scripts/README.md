@@ -37,7 +37,7 @@ Notes from using it:
 
 ## harness/
 
-Python 3 scripts used for the November 2026 tests. They use only the standard library and talk to a local Ollama instance on the given port. Each writes JSON to `$BENCH_OUT_DIR` (default `results/raw/`, which is git-ignored).
+Python 3.11+ scripts used for the November 2026 tests. They use only the standard library and talk to a local Ollama instance on the given port. Each writes JSON to `$BENCH_OUT_DIR` (default `results/raw/`, which is git-ignored). Shared HTTP and `/proc` helpers live in `common.py`. Set `AMDGPU_CARD` if your GPU is not `card1`.
 
 | Script | Arguments | What it does |
 |---|---|---|
@@ -46,7 +46,7 @@ Python 3 scripts used for the November 2026 tests. They use only the standard li
 | `calendar_checks.py` | `MODEL PORT LABEL` | Four Google Calendar PATCH checks against a fake event |
 | `prefill.py` | `MODEL PORT THINK LABEL` | Fresh ~27K-token prompt, same prefix again, then a changed follow-up |
 | `context_probe.py` | `MODEL PORT LABEL` | Recall of three anchor codes spread across a ~115K-token prompt |
-| `memory_guard.py` | `LABEL COMMAND...` | Runs a command and kills it if RAM or memory pressure crosses a limit |
+| `memory_guard.py` | `LABEL COMMAND...` | Runs a command and kills it if RAM or memory pressure crosses a limit. Exits 3 if production has a model loaded, 2 if it stopped the run |
 
 Example, with a separate benchmark instance on port 11441 so production is never touched:
 
@@ -62,3 +62,11 @@ scripts/harness/memory_guard.py qwen-reliability \
 The only real network request is the current-data case in `reliability_openai.py`, which reads Ollama's latest release from the GitHub API. Every auth, service, and calendar helper is simulated. Never point these scripts at real credentials or a real calendar.
 
 The Hermes agent-loop runs (rounds 2 and 4 in [model-results.md](../benchmarks/model-results.md)) used a separate runner that imports the installed Hermes agent and, for one case, reads a real calendar with my OAuth credentials. That runner is not published. Its results are in [`results/2026-11-03-24gb/hermes-loop/`](../results/2026-11-03-24gb/hermes-loop/).
+
+## Tests
+
+`tests/mock_ollama.py` is a small HTTP server that answers like a well-behaved model: it calls the expected tools in order and gives answers the scorers accept. The tests run every script against it, so a change that breaks a request, a scorer, or the CSV format fails without a GPU.
+
+```bash
+python3 -m unittest discover -s tests -v
+```
