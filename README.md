@@ -4,9 +4,11 @@
 
 ### Hermes · Ollama · open-weight models · Linux
 
+[![CI](https://github.com/SaiAnumula/local-ai-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/SaiAnumula/local-ai-assistant/actions/workflows/ci.yml)
 ![Status](https://img.shields.io/badge/status-active%20development-f59e0b?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 ![Runtime](https://img.shields.io/badge/runtime-Ollama-000000?style=flat-square)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
 </div>
 
@@ -18,7 +20,7 @@ This repository holds the parts that are safe to publish: architecture notes, be
 
 - Picked the production model with a six-case reliability suite run inside the real agent, after a speed-based pick failed on real tasks ([results](benchmarks/model-results.md#round-2-real-hermes-agent-loop))
 - Re-tuned the stack after losing 8 GB of RAM: moved KV cache to q8_0 (1.2 GB of VRAM saved at 128K), measured fit under systemd memory limits, and cut context to 64K when 128K did not fit
-- Wrote a Bash benchmark tool and Python harnesses for prefill, near-window recall, tool-call reliability, and calendar JSON correctness
+- Wrote a Bash benchmark tool and Python harnesses for prefill, near-window recall, tool-call reliability, and calendar JSON correctness, tested in CI against a mock Ollama server
 - Tracked RAM, swap, memory pressure, and VRAM during every run, and added a guard that aborts a test before it starves the desktop
 - Connected Hermes to Discord, Mnemosyne memory, and the Odysseus web UI, and verified the gateway path end to end
 
@@ -110,7 +112,9 @@ Decode speeds use q8_0 KV. Gemma's calendar case was synthetic, not the real-cal
 | [`scripts/harness/context_probe.py`](scripts/harness/context_probe.py) | Recall of three anchors in a ~115K-token prompt |
 | [`scripts/harness/memory_guard.py`](scripts/harness/memory_guard.py) | Aborts a run if RAM or memory pressure crosses a limit, and refuses to start while production has a model loaded |
 
-Usage is in [scripts/README.md](scripts/README.md).
+| [`tests/`](tests/) | Unit tests for the calendar rules and end-to-end runs of every script against a mock Ollama server |
+
+Usage is in [scripts/README.md](scripts/README.md). CI runs `shellcheck`, `ruff`, the tests, and a gitleaks secret scan on every push.
 
 ## Reliability suite
 
@@ -140,4 +144,4 @@ This repository holds documentation, harness code, and sanitized metrics only. I
 - [ ] Run the suite three times per case with `medium` reasoning at 64K
 - [ ] Publish a sanitized configuration example
 - [ ] Add screenshots of the agent and benchmark runs
-- [ ] Add CI that runs `shellcheck`, `bash -n`, and a secret scan
+- [x] CI with `shellcheck`, `ruff`, mock-server tests, and a secret scan
