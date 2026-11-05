@@ -1,17 +1,16 @@
 # Screenshot plan
 
-Real screenshots will be added after review. Useful evidence includes:
+Screenshots I plan to add:
 
-1. A terminal benchmark run showing the model, context allocation, per-run speed, and average.
-2. A sanitized Hermes interaction that demonstrates correct tool selection and stopping behavior.
-3. The model inventory or `ollama show` output for a featured model.
+1. A terminal benchmark run showing the model, context, per-run speed, and average.
+2. A Hermes session where the agent picks the right tool and stops.
+3. `ollama ps` and `ollama show` output for the production model.
 
-Before publishing a screenshot, remove or obscure:
+Before publishing a screenshot, remove or blur:
 
 - Usernames and home-directory paths
 - IP addresses and device names
-- Discord server, channel, and user identifiers
+- Discord server, channel, and user IDs
 - OAuth URLs, tokens, cookies, and credentials
-- Private prompts, memory, or message content
-- Notifications and unrelated application windows
-
+- Private prompts, memory, calendar entries, or message content
+- Notifications and unrelated windows
