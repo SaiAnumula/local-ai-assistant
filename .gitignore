@@ -29,3 +29,10 @@ tmp/
 Thumbs.db
 .idea/
 .vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Unreviewed harness output
+results/raw/

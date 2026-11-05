@@ -13,6 +13,7 @@ Options:
   --model MODEL       Exact Ollama model name (required)
   --runs NUMBER       Number of measured runs (default: 3)
   --num-ctx NUMBER    Context allocation passed to Ollama (default: 8192)
+  --think BOOL        Thinking mode: true or false (default: false)
   --endpoint URL      Ollama base URL (default: http://127.0.0.1:11434)
   --output FILE       CSV output path (default: results/<timestamp>.csv)
   -h, --help          Show this help
@@ -24,6 +25,7 @@ EOF
 model=""
 runs=3
 num_ctx=8192
+think=false
 endpoint="http://127.0.0.1:11434"
 output=""
 
@@ -39,6 +41,10 @@ while (($#)); do
       ;;
     --num-ctx)
       num_ctx="${2:-}"
+      shift 2
+      ;;
+    --think)
+      think="${2:-}"
       shift 2
       ;;
     --endpoint)
@@ -79,6 +85,11 @@ if [[ ! "$runs" =~ ^[1-9][0-9]*$ ]] || [[ ! "$num_ctx" =~ ^[1-9][0-9]*$ ]]; then
   exit 2
 fi
 
+if [[ "$think" != "true" && "$think" != "false" ]]; then
+  echo "--think must be true or false" >&2
+  exit 2
+fi
+
 endpoint="${endpoint%/}"
 timestamp="$(date -u +'%Y%m%dT%H%M%SZ')"
 if [[ -z "$output" ]]; then
@@ -91,11 +102,12 @@ payload="$(jq -n \
   --arg model "$model" \
   --arg prompt "$prompt" \
   --argjson num_ctx "$num_ctx" \
+  --argjson think "$think" \
   '{
     model: $model,
     prompt: $prompt,
     stream: false,
-    think: false,
+    think: $think,
     options: {
       num_ctx: $num_ctx,
       num_predict: 256,
@@ -104,10 +116,10 @@ payload="$(jq -n \
     }
   }')"
 
-printf '%s\n' 'run,timestamp_utc,model,num_ctx,prompt_tokens,decode_tokens,prompt_tok_s,decode_tok_s,total_seconds,load_seconds' >"$output"
+printf '%s\n' 'run,timestamp_utc,model,num_ctx,prompt_tokens,decode_tokens,prompt_tok_s,decode_tok_s,total_seconds,load_seconds,think,prompt_seconds,decode_seconds' >"$output"
 
 echo "Model: $model"
-echo "Runs: $runs | Context: $num_ctx"
+echo "Runs: $runs | Requested context: $num_ctx | Thinking: $think"
 echo "Output: $output"
 
 for ((run = 1; run <= runs; run++)); do
@@ -128,7 +140,8 @@ for ((run = 1; run <= runs; run++)); do
     --arg run "$run" \
     --arg timestamp "$timestamp" \
     --arg model "$model" \
-    --arg num_ctx "$num_ctx" '
+    --arg num_ctx "$num_ctx" \
+    --arg think "$think" '
       def seconds: . / 1000000000;
       def rate($count; $duration):
         if ($duration // 0) > 0 then ($count / ($duration | seconds)) else 0 end;
@@ -142,7 +155,10 @@ for ((run = 1; run <= runs; run++)); do
         (rate((.prompt_eval_count // 0); (.prompt_eval_duration // 0)) | tostring),
         (rate((.eval_count // 0); (.eval_duration // 0)) | tostring),
         ((.total_duration // 0) | seconds | tostring),
-        ((.load_duration // 0) | seconds | tostring)
+        ((.load_duration // 0) | seconds | tostring),
+        $think,
+        ((.prompt_eval_duration // 0) | seconds | tostring),
+        ((.eval_duration // 0) | seconds | tostring)
       ] | @csv
     ' <<<"$response")"
 
