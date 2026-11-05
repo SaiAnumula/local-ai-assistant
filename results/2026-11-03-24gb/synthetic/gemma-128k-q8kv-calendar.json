@@ -1,0 +1,198 @@
+{
+  "model": "gemma4:12b",
+  "num_ctx": 131072,
+  "reasoning_effort": "none",
+  "protocol": "openai-compatible",
+  "fixture_only": true,
+  "tests": [
+    {
+      "test": "calendar-json-patch",
+      "pass": false,
+      "checks": {
+        "strict_json": true,
+        "wrapper": false,
+        "object": false
+      },
+      "response_top_level_keys": [
+        "events"
+      ],
+      "timings": [
+        {
+          "wall_seconds": 1.1913565619906876,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 318,
+            "prompt_tokens_details": {
+              "cached_tokens": 313
+            },
+            "completion_tokens": 138,
+            "total_tokens": 456
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        }
+      ]
+    },
+    {
+      "test": "calendar-schema-json-patch",
+      "pass": true,
+      "checks": {
+        "strict_json": true,
+        "wrapper": true,
+        "object": true,
+        "only_supported_fields": true,
+        "start_timezone": true,
+        "start_wall_time": true,
+        "start_offset": true,
+        "end_timezone": true,
+        "end_wall_time": true,
+        "end_offset": true,
+        "preserve_summary": true,
+        "preserve_location": true,
+        "preserve_description": true,
+        "preserve_recurrence": true
+      },
+      "response_top_level_keys": [
+        "eventId",
+        "body"
+      ],
+      "timings": [
+        {
+          "wall_seconds": 1.020999607993872,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 318,
+            "prompt_tokens_details": {
+              "cached_tokens": 313
+            },
+            "completion_tokens": 128,
+            "total_tokens": 446
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        }
+      ]
+    },
+    {
+      "test": "calendar-tool-patch",
+      "pass": true,
+      "checks": {
+        "sequence": true,
+        "valid_patch": true,
+        "confirmed": true,
+        "stopped": true,
+        "unchanged_other_fields": true
+      },
+      "tool_sequence": [
+        "calendar_get_event",
+        "calendar_patch_event"
+      ],
+      "unnecessary_actions": [],
+      "patch_checks": [
+        {
+          "object": true,
+          "only_supported_fields": true,
+          "start_timezone": true,
+          "start_wall_time": true,
+          "start_offset": true,
+          "end_timezone": true,
+          "end_wall_time": true,
+          "end_offset": true,
+          "preserve_summary": true,
+          "preserve_location": true,
+          "preserve_description": true,
+          "preserve_recurrence": true
+        }
+      ],
+      "timings": [
+        {
+          "wall_seconds": 0.38147411799582187,
+          "finish_reason": "tool_calls",
+          "usage": {
+            "prompt_tokens": 414,
+            "prompt_tokens_details": {
+              "cached_tokens": 408
+            },
+            "completion_tokens": 28,
+            "total_tokens": 442
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        },
+        {
+          "wall_seconds": 1.0648526649893029,
+          "finish_reason": "tool_calls",
+          "usage": {
+            "prompt_tokens": 584,
+            "prompt_tokens_details": {
+              "cached_tokens": 409
+            },
+            "completion_tokens": 108,
+            "total_tokens": 692
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        },
+        {
+          "wall_seconds": 0.39775335000013,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 854,
+            "prompt_tokens_details": {
+              "cached_tokens": 579
+            },
+            "completion_tokens": 7,
+            "total_tokens": 861
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        }
+      ]
+    },
+    {
+      "test": "calendar-clarify-before-write",
+      "pass": true,
+      "checks": {
+        "no_write": true,
+        "at_most_one_read": true,
+        "asked_clarification": true,
+        "stopped": true
+      },
+      "tool_sequence": [
+        "calendar_get_event"
+      ],
+      "unnecessary_actions": [],
+      "patch_checks": [],
+      "timings": [
+        {
+          "wall_seconds": 0.6345564520015614,
+          "finish_reason": "tool_calls",
+          "usage": {
+            "prompt_tokens": 403,
+            "prompt_tokens_details": {
+              "cached_tokens": 397
+            },
+            "completion_tokens": 28,
+            "total_tokens": 431
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        },
+        {
+          "wall_seconds": 1.194719505001558,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 573,
+            "prompt_tokens_details": {
+              "cached_tokens": 398
+            },
+            "completion_tokens": 91,
+            "total_tokens": 664
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        }
+      ]
+    }
+  ]
+}

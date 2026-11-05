@@ -1,0 +1,194 @@
+{
+  "model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+  "num_ctx": 131072,
+  "reasoning_effort": "none",
+  "protocol": "openai-compatible",
+  "fixture_only": true,
+  "tests": [
+    {
+      "test": "calendar-json-patch",
+      "pass": true,
+      "checks": {
+        "strict_json": true,
+        "wrapper": true,
+        "object": true,
+        "only_supported_fields": true,
+        "start_timezone": true,
+        "start_wall_time": true,
+        "start_offset": true,
+        "end_timezone": true,
+        "end_wall_time": true,
+        "end_offset": true,
+        "preserve_summary": true,
+        "preserve_location": true,
+        "preserve_description": true,
+        "preserve_recurrence": true
+      },
+      "response_top_level_keys": [
+        "eventId",
+        "body"
+      ],
+      "timings": [
+        {
+          "wall_seconds": 57.10788091200811,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 311,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens": 130,
+            "total_tokens": 441
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        }
+      ]
+    },
+    {
+      "test": "calendar-schema-json-patch",
+      "pass": true,
+      "checks": {
+        "strict_json": true,
+        "wrapper": true,
+        "object": true,
+        "only_supported_fields": true,
+        "start_timezone": true,
+        "start_wall_time": true,
+        "start_offset": true,
+        "end_timezone": true,
+        "end_wall_time": true,
+        "end_offset": true,
+        "preserve_summary": true,
+        "preserve_location": true,
+        "preserve_description": true,
+        "preserve_recurrence": true
+      },
+      "response_top_level_keys": [
+        "body",
+        "eventId"
+      ],
+      "timings": [
+        {
+          "wall_seconds": 3.6975629439984914,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 311,
+            "prompt_tokens_details": {
+              "cached_tokens": 307
+            },
+            "completion_tokens": 130,
+            "total_tokens": 441
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        }
+      ]
+    },
+    {
+      "test": "calendar-tool-patch",
+      "pass": true,
+      "checks": {
+        "sequence": true,
+        "valid_patch": true,
+        "confirmed": true,
+        "stopped": true,
+        "unchanged_other_fields": true
+      },
+      "tool_sequence": [
+        "calendar_get_event",
+        "calendar_patch_event"
+      ],
+      "unnecessary_actions": [],
+      "patch_checks": [
+        {
+          "object": true,
+          "only_supported_fields": true,
+          "start_timezone": true,
+          "start_wall_time": true,
+          "start_offset": true,
+          "end_timezone": true,
+          "end_wall_time": true,
+          "end_offset": true,
+          "preserve_summary": true,
+          "preserve_location": true,
+          "preserve_description": true,
+          "preserve_recurrence": true
+        }
+      ],
+      "timings": [
+        {
+          "wall_seconds": 4.785325364005985,
+          "finish_reason": "tool_calls",
+          "usage": {
+            "prompt_tokens": 654,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens": 39,
+            "total_tokens": 693
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        },
+        {
+          "wall_seconds": 8.446718378996593,
+          "finish_reason": "tool_calls",
+          "usage": {
+            "prompt_tokens": 842,
+            "prompt_tokens_details": {
+              "cached_tokens": 692
+            },
+            "completion_tokens": 263,
+            "total_tokens": 1105
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        },
+        {
+          "wall_seconds": 2.6270580170094036,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 1276,
+            "prompt_tokens_details": {
+              "cached_tokens": 838
+            },
+            "completion_tokens": 41,
+            "total_tokens": 1317
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        }
+      ]
+    },
+    {
+      "test": "calendar-clarify-before-write",
+      "pass": true,
+      "checks": {
+        "no_write": true,
+        "at_most_one_read": true,
+        "asked_clarification": true,
+        "stopped": true
+      },
+      "tool_sequence": [],
+      "unnecessary_actions": [],
+      "patch_checks": [],
+      "timings": [
+        {
+          "wall_seconds": 2.472471537999809,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 642,
+            "prompt_tokens_details": {
+              "cached_tokens": 563
+            },
+            "completion_tokens": 50,
+            "total_tokens": 692
+          },
+          "reasoning_chars": 0,
+          "raw_reasoning_delimiter": false
+        }
+      ]
+    }
+  ]
+}

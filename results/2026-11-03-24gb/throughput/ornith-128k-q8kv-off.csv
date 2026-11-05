@@ -1,0 +1,4 @@
+run,timestamp_utc,model,num_ctx,prompt_tokens,decode_tokens,prompt_tok_s,decode_tok_s,total_seconds,load_seconds,think,prompt_seconds,decode_seconds
+"1","20261103T170510Z","ornith-benchmark:9b-q4-128k","131072",32,256,"353.5794393556015","84.35053710863492","9.511954977","6.383325282","false","0.090503","3.034954"
+"2","20261103T170510Z","ornith-benchmark:9b-q4-128k","131072",32,256,"767.7358988507953","86.92451556560016","3.016188356","0.002338588","false","0.041681","2.945084"
+"3","20261103T170510Z","ornith-benchmark:9b-q4-128k","131072",32,256,"900.4192577168744","86.7953724504707","2.987448249","0.000450068","false","0.035539","2.949466"

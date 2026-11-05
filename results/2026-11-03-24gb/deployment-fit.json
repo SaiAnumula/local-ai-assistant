@@ -1,0 +1,18 @@
+{
+  "production_model": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+  "context": 65536,
+  "reasoning_effort": "medium",
+  "kv_cache": "q8_0",
+  "gpu_requirement_met": false,
+  "ollama_processor": "2%/98% CPU/GPU",
+  "memory_limits_preserved": {
+    "MemoryHigh": "6G",
+    "MemoryMax": "7G",
+    "MemorySwapMax": "0"
+  },
+  "oauth_and_calendar": "No OAuth file reads/writes, no calendar requests in this deployment",
+  "fallback": "Ornith installed, manual selection for simple single-step requests; no automatic fallback configured",
+  "hermes_gateway_restart": "Not restarted; installed gateway code resolves config/model and cache signature per turn; existing session-specific model overrides retain precedence",
+  "auxiliary_models": "Existing vision and compression settings preserved",
+  "reliability_medium": "UNRUN; prior matched reliability tests used reasoning off; medium smoke only"
+}

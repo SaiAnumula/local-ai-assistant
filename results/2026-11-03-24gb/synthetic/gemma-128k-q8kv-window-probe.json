@@ -1,0 +1,23 @@
+{
+  "model": "gemma4:12b",
+  "num_ctx": 131072,
+  "think": false,
+  "synthetic": true,
+  "result": {
+    "prompt_eval_count": 116211,
+    "prompt_eval_duration": 119032156000,
+    "eval_count": 52,
+    "eval_duration": 569095000,
+    "total_duration": 120134838587,
+    "load_duration": 1935009,
+    "done_reason": "stop",
+    "wall_seconds": 120.21087632000854,
+    "anchors_recalled": {
+      "start": true,
+      "middle": true,
+      "end": true
+    },
+    "response_chars": 89,
+    "input_chars": 270438
+  }
+}

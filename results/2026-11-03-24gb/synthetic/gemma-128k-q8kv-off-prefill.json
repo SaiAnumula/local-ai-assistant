@@ -1,0 +1,56 @@
+{
+  "model": "gemma4:12b",
+  "think": false,
+  "num_ctx": 131072,
+  "synthetic_prompt_chars": 63151,
+  "results": [
+    {
+      "prompt_eval_count": 27151,
+      "prompt_eval_duration": 17449064000,
+      "eval_count": 2,
+      "eval_duration": 33845000,
+      "load_duration": 757418,
+      "total_duration": 17617243794,
+      "done_reason": "stop",
+      "stage": "fresh-prefix",
+      "wall_seconds": 17.64037653800915,
+      "response_chars": 5,
+      "thinking_chars": 0,
+      "reasoning_in_response": false,
+      "raw_exact_answer": true,
+      "expected_answer": true
+    },
+    {
+      "prompt_eval_count": 27151,
+      "prompt_eval_duration": 106310000,
+      "eval_count": 2,
+      "eval_duration": 37254000,
+      "load_duration": 689719,
+      "total_duration": 173381061,
+      "done_reason": "stop",
+      "stage": "same-prefix",
+      "wall_seconds": 0.19164611800806597,
+      "response_chars": 5,
+      "thinking_chars": 0,
+      "reasoning_in_response": false,
+      "raw_exact_answer": true,
+      "expected_answer": true
+    },
+    {
+      "prompt_eval_count": 27162,
+      "prompt_eval_duration": 322260000,
+      "eval_count": 3,
+      "eval_duration": 45576000,
+      "load_duration": 559247,
+      "total_duration": 401557607,
+      "done_reason": "stop",
+      "stage": "incremental-tool-result",
+      "wall_seconds": 0.42457770100736525,
+      "response_chars": 8,
+      "thinking_chars": 0,
+      "reasoning_in_response": false,
+      "raw_exact_answer": true,
+      "expected_answer": true
+    }
+  ]
+}

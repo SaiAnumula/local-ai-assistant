@@ -1,0 +1,50 @@
+[
+  {
+    "model": "ornith",
+    "num_ctx": 131072,
+    "kv": "q8_0",
+    "reasoning_effort": "none",
+    "warm_decode_tok_s": 86.85994400803543,
+    "helper_passes": 5,
+    "calendar_passes": 4,
+    "near_window_tokens": 115412,
+    "near_window_wall_seconds": 70.2219824030035,
+    "near_window_anchors": {
+      "start": true,
+      "middle": true,
+      "end": true
+    }
+  },
+  {
+    "model": "gemma",
+    "num_ctx": 131072,
+    "kv": "q8_0",
+    "reasoning_effort": "none",
+    "warm_decode_tok_s": 94.38917265032043,
+    "helper_passes": 5,
+    "calendar_passes": 3,
+    "near_window_tokens": 116211,
+    "near_window_wall_seconds": 120.21087632000854,
+    "near_window_anchors": {
+      "start": true,
+      "middle": true,
+      "end": true
+    }
+  },
+  {
+    "model": "qwen-q4",
+    "num_ctx": 131072,
+    "kv": "q8_0",
+    "reasoning_effort": "none",
+    "warm_decode_tok_s": 37.518992197296924,
+    "helper_passes": 5,
+    "calendar_passes": 4,
+    "near_window_tokens": 115412,
+    "near_window_wall_seconds": 380.48851161799394,
+    "near_window_anchors": {
+      "start": true,
+      "middle": true,
+      "end": true
+    }
+  }
+]

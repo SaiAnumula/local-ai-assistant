@@ -1,0 +1,200 @@
+{
+  "model": "gemma4:12b",
+  "think": true,
+  "num_ctx": 131072,
+  "synthetic_tools": true,
+  "tests": [
+    {
+      "test": "auth-success",
+      "pass": true,
+      "tool_sequence": [
+        "google_auth"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 69,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 240,
+          "prompt_eval_duration": 196846000,
+          "eval_count": 113,
+          "eval_duration": 854815000,
+          "load_duration": 548930,
+          "total_duration": 1132848391,
+          "done_reason": "stop",
+          "wall_seconds": 1.137427191992174
+        },
+        {
+          "prompt_eval_count": 380,
+          "prompt_eval_duration": 217490000,
+          "eval_count": 36,
+          "eval_duration": 310955000,
+          "load_duration": 507811,
+          "total_duration": 534087507,
+          "done_reason": "stop",
+          "wall_seconds": 0.5347155150084291
+        }
+      ],
+      "source_live": false
+    },
+    {
+      "test": "auth-revoked",
+      "pass": true,
+      "tool_sequence": [
+        "google_recover"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 257,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 250,
+          "prompt_eval_duration": 183834000,
+          "eval_count": 111,
+          "eval_duration": 807474000,
+          "load_duration": 370243,
+          "total_duration": 994378852,
+          "done_reason": "stop",
+          "wall_seconds": 0.9949737369897775
+        },
+        {
+          "prompt_eval_count": 408,
+          "prompt_eval_duration": 211389000,
+          "eval_count": 91,
+          "eval_duration": 807280000,
+          "load_duration": 564453,
+          "total_duration": 1022705669,
+          "done_reason": "stop",
+          "wall_seconds": 1.0232428809977137
+        }
+      ],
+      "source_live": false
+    },
+    {
+      "test": "service-repair",
+      "pass": true,
+      "tool_sequence": [
+        "service_status",
+        "service_repair",
+        "service_verify"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 406,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 251,
+          "prompt_eval_duration": 182562000,
+          "eval_count": 123,
+          "eval_duration": 936321000,
+          "load_duration": 540399,
+          "total_duration": 1216076022,
+          "done_reason": "stop",
+          "wall_seconds": 1.2166565250081476
+        },
+        {
+          "prompt_eval_count": 414,
+          "prompt_eval_duration": 222448000,
+          "eval_count": 54,
+          "eval_duration": 467511000,
+          "load_duration": 571656,
+          "total_duration": 695437194,
+          "done_reason": "stop",
+          "wall_seconds": 0.6961542110075243
+        },
+        {
+          "prompt_eval_count": 498,
+          "prompt_eval_duration": 194237000,
+          "eval_count": 46,
+          "eval_duration": 364564000,
+          "load_duration": 540098,
+          "total_duration": 563522976,
+          "done_reason": "stop",
+          "wall_seconds": 0.5640659519995097
+        },
+        {
+          "prompt_eval_count": 570,
+          "prompt_eval_duration": 213221000,
+          "eval_count": 110,
+          "eval_duration": 915505000,
+          "load_duration": 475869,
+          "total_duration": 1133637436,
+          "done_reason": "stop",
+          "wall_seconds": 1.1341906070010737
+        }
+      ],
+      "source_live": false
+    },
+    {
+      "test": "missing-env",
+      "pass": true,
+      "tool_sequence": [
+        "config_check"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 131,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 253,
+          "prompt_eval_duration": 201663000,
+          "eval_count": 112,
+          "eval_duration": 869547000,
+          "load_duration": 472171,
+          "total_duration": 1406511373,
+          "done_reason": "stop",
+          "wall_seconds": 1.4071004950092174
+        },
+        {
+          "prompt_eval_count": 416,
+          "prompt_eval_duration": 212091000,
+          "eval_count": 145,
+          "eval_duration": 1080315000,
+          "load_duration": 525165,
+          "total_duration": 1297366806,
+          "done_reason": "stop",
+          "wall_seconds": 1.2979969339939998
+        }
+      ],
+      "source_live": false
+    },
+    {
+      "test": "current-data",
+      "pass": true,
+      "tool_sequence": [
+        "web_fetch"
+      ],
+      "unnecessary_actions": [],
+      "stop_condition": true,
+      "final_chars": 64,
+      "errors": [],
+      "timings": [
+        {
+          "prompt_eval_count": 267,
+          "prompt_eval_duration": 213313000,
+          "eval_count": 101,
+          "eval_duration": 759756000,
+          "load_duration": 494357,
+          "total_duration": 1053845807,
+          "done_reason": "stop",
+          "wall_seconds": 1.054511188995093
+        },
+        {
+          "prompt_eval_count": 498,
+          "prompt_eval_duration": 231696000,
+          "eval_count": 60,
+          "eval_duration": 476520000,
+          "load_duration": 487762,
+          "total_duration": 712708867,
+          "done_reason": "stop",
+          "wall_seconds": 0.7133441289915936
+        }
+      ],
+      "source_live": true
+    }
+  ]
+}

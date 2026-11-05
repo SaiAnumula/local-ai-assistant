@@ -1,0 +1,41 @@
+[
+  {
+    "route": "/api/chat",
+    "wall_seconds": 1.3181592600012664,
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "tool_calls": [
+        {
+          "id": "call_4r2qmy7f",
+          "function": {
+            "index": 0,
+            "name": "terminal",
+            "arguments": {
+              "command": "helper auth"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "route": "/v1/chat/completions",
+    "wall_seconds": 0.9637423300009686,
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "tool_calls": [
+        {
+          "id": "call_4kxljh1o",
+          "index": 0,
+          "type": "function",
+          "function": {
+            "name": "terminal",
+            "arguments": "{\"command\":\"helper auth\"}"
+          }
+        }
+      ]
+    }
+  }
+]
