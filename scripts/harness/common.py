@@ -73,8 +73,39 @@ def memory_pressure() -> str:
     return pathlib.Path("/proc/pressure/memory").read_text()
 
 
-def vram_used_bytes() -> int | None:
-    """VRAM in use on an amdgpu card, or None without one. Set AMDGPU_CARD if the GPU is not card1."""
-    card = os.environ.get("AMDGPU_CARD", "card1")
-    path = pathlib.Path(f"/sys/class/drm/{card}/device/mem_info_vram_used")
-    return int(path.read_text()) if path.exists() else None
+DRM_ROOT = pathlib.Path("/sys/class/drm")
+
+
+def find_amdgpu_card(drm_root: pathlib.Path = DRM_ROOT) -> pathlib.Path | None:
+    """Return the amdgpu device directory to read VRAM from, or None without one.
+
+    $AMDGPU_CARD (for example card0) picks a card by name. Otherwise this uses the card with
+    the most VRAM, so a discrete GPU wins over an integrated one whatever order the kernel
+    numbered them in.
+    """
+    card = os.environ.get("AMDGPU_CARD")
+    if card:
+        device = drm_root / card / "device"
+        return device if (device / "mem_info_vram_used").exists() else None
+
+    best, best_total = None, -1
+    for used in sorted(drm_root.glob("card[0-9]*/device/mem_info_vram_used")):
+        total_file = used.parent / "mem_info_vram_total"
+        try:
+            total = int(total_file.read_text()) if total_file.exists() else 0
+        except (OSError, ValueError):
+            continue
+        if total > best_total:
+            best, best_total = used.parent, total
+    return best
+
+
+def vram_used_bytes(drm_root: pathlib.Path = DRM_ROOT) -> int | None:
+    """VRAM in use on the amdgpu card from find_amdgpu_card(), or None without one."""
+    device = find_amdgpu_card(drm_root)
+    if device is None:
+        return None
+    try:
+        return int((device / "mem_info_vram_used").read_text())
+    except (OSError, ValueError):
+        return None

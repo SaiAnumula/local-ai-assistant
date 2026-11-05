@@ -14,6 +14,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import unittest.mock
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 HARNESS = ROOT / "scripts" / "harness"
@@ -21,6 +22,7 @@ sys.path.insert(0, str(HARNESS))
 sys.path.insert(0, str(ROOT / "tests"))
 
 import calendar_checks  # noqa: E402
+import common  # noqa: E402
 import mock_ollama  # noqa: E402
 import reliability_openai  # noqa: E402
 
@@ -75,6 +77,50 @@ class ValidatePatchTest(unittest.TestCase):
 
     def test_non_object_fails(self):
         self.assertEqual(calendar_checks.validate(["start"]), {"object": False})
+
+
+class FindAmdgpuCardTest(unittest.TestCase):
+    """VRAM card selection against fake /sys/class/drm trees."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = pathlib.Path(self.tmp.name)
+        self.addCleanup(self.tmp.cleanup)
+        patcher = unittest.mock.patch.dict(os.environ)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        os.environ.pop("AMDGPU_CARD", None)
+
+    def add_card(self, name, total, used):
+        device = self.root / name / "device"
+        device.mkdir(parents=True)
+        (device / "mem_info_vram_total").write_text(f"{total}\n")
+        (device / "mem_info_vram_used").write_text(f"{used}\n")
+
+    def test_no_card_returns_none(self):
+        (self.root / "card0" / "device").mkdir(parents=True)
+        self.assertIsNone(common.vram_used_bytes(self.root))
+
+    def test_discrete_gpu_wins_over_integrated(self):
+        self.add_card("card0", 16 * 2**30, 5_000)
+        self.add_card("card1", 512 * 2**20, 100)
+        self.assertEqual(common.vram_used_bytes(self.root), 5_000)
+
+    def test_env_override_picks_named_card(self):
+        self.add_card("card0", 16 * 2**30, 5_000)
+        self.add_card("card1", 512 * 2**20, 100)
+        os.environ["AMDGPU_CARD"] = "card1"
+        self.assertEqual(common.vram_used_bytes(self.root), 100)
+
+    def test_env_override_to_missing_card_returns_none(self):
+        self.add_card("card0", 16 * 2**30, 5_000)
+        os.environ["AMDGPU_CARD"] = "card7"
+        self.assertIsNone(common.vram_used_bytes(self.root))
+
+    def test_connector_entries_are_ignored(self):
+        self.add_card("card1", 16 * 2**30, 42)
+        (self.root / "card1-DP-1").mkdir()
+        self.assertEqual(common.vram_used_bytes(self.root), 42)
 
 
 class HarnessAgainstMockTest(unittest.TestCase):

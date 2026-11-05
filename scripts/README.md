@@ -37,7 +37,7 @@ Notes from using it:
 
 ## harness/
 
-Python 3.11+ scripts used for the November 2026 tests. They use only the standard library and talk to a local Ollama instance on the given port. Each writes JSON to `$BENCH_OUT_DIR` (default `results/raw/`, which is git-ignored). Shared HTTP and `/proc` helpers live in `common.py`. Set `AMDGPU_CARD` if your GPU is not `card1`.
+Python 3.11+ scripts used for the November 2026 tests. They use only the standard library and talk to a local Ollama instance on the given port. Each writes JSON to `$BENCH_OUT_DIR` (default `results/raw/`, which is git-ignored). Shared HTTP and `/proc` helpers live in `common.py`. VRAM is read from the amdgpu card with the most memory. Set `AMDGPU_CARD` (for example `card0`) to pick one.
 
 | Script | Arguments | What it does |
 |---|---|---|
