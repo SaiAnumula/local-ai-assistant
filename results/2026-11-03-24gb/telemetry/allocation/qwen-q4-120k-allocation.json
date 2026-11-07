@@ -1,0 +1,24 @@
+{
+  "cpu_mapped_model_mib": 10830.51,
+  "gpu_kv_mib": [
+    2400.0
+  ],
+  "gpu_model_mib": [
+    10268.14
+  ],
+  "kv_type": "f16",
+  "models": [
+    {
+      "context_length": 122880,
+      "details": {
+        "family": "qwen35moe",
+        "parameter_size": "34.7B",
+        "quantization_level": "unknown"
+      },
+      "name": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M",
+      "size": 14335072007,
+      "size_vram": 14014291638
+    }
+  ],
+  "requested_num_ctx": 122880
+}

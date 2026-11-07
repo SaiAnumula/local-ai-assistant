@@ -1,0 +1,29 @@
+{
+  "cpu_mapped_model_mib": [
+    787.5,
+    272.0
+  ],
+  "gpu_kv_mib": [
+    1088.0,
+    255.0
+  ],
+  "gpu_model_mib": [
+    7024.34,
+    428.53
+  ],
+  "kv_type": "q8_0",
+  "models": [
+    {
+      "context_length": 131072,
+      "details": {
+        "family": "gemma4",
+        "parameter_size": "11.9B",
+        "quantization_level": "Q4_K_M"
+      },
+      "name": "gemma4:12b",
+      "size": 1041152080,
+      "size_vram": 1041152080
+    }
+  ],
+  "requested_num_ctx": 131072
+}

@@ -1,0 +1,26 @@
+{
+  "cpu_mapped_model_mib": [
+    545.62
+  ],
+  "gpu_kv_mib": [
+    2176.0
+  ],
+  "gpu_model_mib": [
+    4812.25
+  ],
+  "kv_type": "q8_0",
+  "models": [
+    {
+      "context_length": 131072,
+      "details": {
+        "family": "qwen35",
+        "parameter_size": "9.0B",
+        "quantization_level": "Q4_K_M"
+      },
+      "name": "ornith-benchmark:9b-q4-128k",
+      "size": 7632364503,
+      "size_vram": 7632364503
+    }
+  ],
+  "requested_num_ctx": 131072
+}

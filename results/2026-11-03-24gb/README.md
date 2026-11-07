@@ -1,6 +1,6 @@
 # 24 GB retune, 2026-11-03
 
-Raw data behind the [November 2026 retune](../../benchmarks/model-results.md#november-2026-retuning-on-24-gb). Host: i5-13600KF, RX 9070 16 GB, 24 GB DDR4, CachyOS. All runs used seed 42 and temperature 0. Most cases ran once, so treat them as directional.
+Selected data for the [November 2026 retune](../../benchmarks/model-results.md#november-2026-retuning-on-24-gb). The host had an i5-13600KF, RX 9070 16 GB, 24 GB DDR4, and CachyOS. Runs used seed 42 and temperature 0. Most cases ran once, so the results are directional.
 
 | Path | Round | Contents |
 |---|---|---|
@@ -15,7 +15,12 @@ Raw data behind the [November 2026 retune](../../benchmarks/model-results.md#nov
 | `hermes-loop/ministral-vs-gemma.json` | 4 | Six cases through the Hermes agent with the synthetic calendar fixture |
 | `hermes-loop/ministral-minimal-tool-call-check.json` | 4 | One-tool call test on both Ollama endpoints |
 | `deployment-fit.json` | 3 | Applied production profile and fit results |
+| `telemetry/` | 1, 4 | Sanitized RAM, swap, memory pressure, and VRAM samples, with allocation summaries |
 
-The real-calendar case in round 2 publishes only pass/fail, counts, and tool sequences. Calendar names were replaced with aliases (`fall-2026`) before the model saw them, and event contents are not included.
+The round 2 calendar audit publishes pass results, counts, and tool sequences only. It does not include calendar names or event contents.
 
-Superseded runs are left out: an early 32K run confounded by a concurrent agent request, prefill runs scored before the `</think>` parsing fix, an Ornith pilot with a broken tool interface, and a Ministral load stopped by the memory guard.
+Superseded runs are not included. These include an early 32K run affected by a concurrent agent request, prefill runs scored before a parsing fix, an Ornith pilot with a broken tool interface, and a Ministral load stopped by the memory guard.
+
+The separate local evaluation bundles contain private traces, production snapshots, logs, and a copied Hermes home. Those files are not part of this public results set.
+
+Telemetry files keep only measurements, elapsed sample times, and public model labels. Allocation files omit model digests, runner details, and expiry values. Snapshot files omit unrelated host data.

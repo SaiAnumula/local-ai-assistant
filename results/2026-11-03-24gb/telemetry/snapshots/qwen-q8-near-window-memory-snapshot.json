@@ -1,0 +1,12 @@
+{
+  "gpu_busy_percent": "63",
+  "memory_kib": {
+    "MemAvailable": 14816180,
+    "MemTotal": 24402376,
+    "SwapFree": 16750228,
+    "SwapTotal": 24401916
+  },
+  "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.32 total=45321928\nfull avg10=0.00 avg60=0.00 avg300=0.32 total=43338247\n",
+  "timestamp": 1793724388.3075151,
+  "vram_used_bytes": "16492109824"
+}

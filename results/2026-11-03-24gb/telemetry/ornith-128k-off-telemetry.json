@@ -1,0 +1,233 @@
+[
+  {
+    "elapsed_seconds": 1793721831.7651205,
+    "memory_kib": {
+      "MemAvailable": 14810384,
+      "MemTotal": 24402376,
+      "SwapFree": 17483200,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=15306404\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=13694451\n",
+    "models": [],
+    "vram_used_bytes": 1290805248
+  },
+  {
+    "elapsed_seconds": 1793721832.7699535,
+    "memory_kib": {
+      "MemAvailable": 14698648,
+      "MemTotal": 24402376,
+      "SwapFree": 17483200,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=15306404\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=13694451\n",
+    "models": [],
+    "vram_used_bytes": 6336897024
+  },
+  {
+    "elapsed_seconds": 1793721833.7707605,
+    "memory_kib": {
+      "MemAvailable": 14592336,
+      "MemTotal": 24402376,
+      "SwapFree": 17483236,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=15308777\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=13696824\n",
+    "models": [],
+    "vram_used_bytes": 11873169408
+  },
+  {
+    "elapsed_seconds": 1793721834.7716184,
+    "memory_kib": {
+      "MemAvailable": 14778912,
+      "MemTotal": 24402376,
+      "SwapFree": 17440392,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=15325000\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=13713024\n",
+    "models": [],
+    "vram_used_bytes": 11873169408
+  },
+  {
+    "elapsed_seconds": 1793721835.7723536,
+    "memory_kib": {
+      "MemAvailable": 14729352,
+      "MemTotal": 24402376,
+      "SwapFree": 17438832,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.18 avg60=0.03 avg300=0.00 total=15333136\nfull avg10=0.18 avg60=0.03 avg300=0.00 total=13720982\n",
+    "models": [],
+    "vram_used_bytes": 11873169408
+  },
+  {
+    "elapsed_seconds": 1793721836.7730558,
+    "memory_kib": {
+      "MemAvailable": 14664552,
+      "MemTotal": 24402376,
+      "SwapFree": 17438416,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.18 avg60=0.03 avg300=0.00 total=15338619\nfull avg10=0.18 avg60=0.03 avg300=0.00 total=13725994\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  },
+  {
+    "elapsed_seconds": 1793721837.7738996,
+    "memory_kib": {
+      "MemAvailable": 14705356,
+      "MemTotal": 24402376,
+      "SwapFree": 17438416,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.14 avg60=0.03 avg300=0.00 total=15338619\nfull avg10=0.14 avg60=0.03 avg300=0.00 total=13725994\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  },
+  {
+    "elapsed_seconds": 1793721838.774865,
+    "memory_kib": {
+      "MemAvailable": 14678044,
+      "MemTotal": 24402376,
+      "SwapFree": 17438044,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.14 avg60=0.03 avg300=0.00 total=15339423\nfull avg10=0.14 avg60=0.03 avg300=0.00 total=13726797\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  },
+  {
+    "elapsed_seconds": 1793721839.7756925,
+    "memory_kib": {
+      "MemAvailable": 14701844,
+      "MemTotal": 24402376,
+      "SwapFree": 17437184,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.12 avg60=0.02 avg300=0.00 total=15340647\nfull avg10=0.12 avg60=0.02 avg300=0.00 total=13728021\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  },
+  {
+    "elapsed_seconds": 1793721840.7765224,
+    "memory_kib": {
+      "MemAvailable": 14691636,
+      "MemTotal": 24402376,
+      "SwapFree": 17437204,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.12 avg60=0.02 avg300=0.00 total=15351861\nfull avg10=0.12 avg60=0.02 avg300=0.00 total=13737306\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  },
+  {
+    "elapsed_seconds": 1793721841.7773535,
+    "memory_kib": {
+      "MemAvailable": 14679792,
+      "MemTotal": 24402376,
+      "SwapFree": 17437228,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.09 avg60=0.02 avg300=0.00 total=15352021\nfull avg10=0.09 avg60=0.02 avg300=0.00 total=13737466\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  },
+  {
+    "elapsed_seconds": 1793721842.7782023,
+    "memory_kib": {
+      "MemAvailable": 14653376,
+      "MemTotal": 24402376,
+      "SwapFree": 17435544,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.09 avg60=0.02 avg300=0.00 total=15352356\nfull avg10=0.09 avg60=0.02 avg300=0.00 total=13737801\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  },
+  {
+    "elapsed_seconds": 1793721843.7789679,
+    "memory_kib": {
+      "MemAvailable": 14638412,
+      "MemTotal": 24402376,
+      "SwapFree": 17435556,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.08 avg60=0.02 avg300=0.00 total=15352924\nfull avg10=0.08 avg60=0.02 avg300=0.00 total=13738332\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  },
+  {
+    "elapsed_seconds": 1793721844.7801926,
+    "memory_kib": {
+      "MemAvailable": 14658352,
+      "MemTotal": 24402376,
+      "SwapFree": 17435200,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.08 avg60=0.02 avg300=0.00 total=15353655\nfull avg10=0.08 avg60=0.02 avg300=0.00 total=13739062\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "ornith-1.5:9b",
+        "size": 9905499012,
+        "size_vram": 9905499012
+      }
+    ],
+    "vram_used_bytes": 12142051328
+  }
+]

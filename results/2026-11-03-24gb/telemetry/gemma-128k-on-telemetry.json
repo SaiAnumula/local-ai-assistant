@@ -1,0 +1,154 @@
+[
+  {
+    "elapsed_seconds": 1793722114.3821943,
+    "memory_kib": {
+      "MemAvailable": 14958136,
+      "MemTotal": 24402376,
+      "SwapFree": 16201884,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.53 avg60=1.10 avg300=0.48 total=17750676\nfull avg10=0.53 avg60=1.10 avg300=0.48 total=16088662\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "gemma4:12b",
+        "size": 1275739503,
+        "size_vram": 1275739503
+      }
+    ],
+    "vram_used_bytes": 12610134016
+  },
+  {
+    "elapsed_seconds": 1793722115.389834,
+    "memory_kib": {
+      "MemAvailable": 14909940,
+      "MemTotal": 24402376,
+      "SwapFree": 16256720,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.53 avg60=1.10 avg300=0.48 total=17757518\nfull avg10=0.53 avg60=1.10 avg300=0.48 total=16093678\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "gemma4:12b",
+        "size": 1275739503,
+        "size_vram": 1275739503
+      }
+    ],
+    "vram_used_bytes": 12610334720
+  },
+  {
+    "elapsed_seconds": 1793722116.3907728,
+    "memory_kib": {
+      "MemAvailable": 14902624,
+      "MemTotal": 24402376,
+      "SwapFree": 16266204,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.43 avg60=1.06 avg300=0.47 total=17757613\nfull avg10=0.43 avg60=1.06 avg300=0.47 total=16093773\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "gemma4:12b",
+        "size": 1275739503,
+        "size_vram": 1275739503
+      }
+    ],
+    "vram_used_bytes": 12610334720
+  },
+  {
+    "elapsed_seconds": 1793722117.3915818,
+    "memory_kib": {
+      "MemAvailable": 14760572,
+      "MemTotal": 24402376,
+      "SwapFree": 16331356,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.43 avg60=1.06 avg300=0.47 total=17761878\nfull avg10=0.43 avg60=1.06 avg300=0.47 total=16097441\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "gemma4:12b",
+        "size": 1275739503,
+        "size_vram": 1275739503
+      }
+    ],
+    "vram_used_bytes": 12610334720
+  },
+  {
+    "elapsed_seconds": 1793722118.3923943,
+    "memory_kib": {
+      "MemAvailable": 14755792,
+      "MemTotal": 24402376,
+      "SwapFree": 16334364,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.35 avg60=1.03 avg300=0.47 total=17761887\nfull avg10=0.35 avg60=1.03 avg300=0.47 total=16097450\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "gemma4:12b",
+        "size": 1275739503,
+        "size_vram": 1275739503
+      }
+    ],
+    "vram_used_bytes": 12610334720
+  },
+  {
+    "elapsed_seconds": 1793722119.393256,
+    "memory_kib": {
+      "MemAvailable": 14701124,
+      "MemTotal": 24402376,
+      "SwapFree": 16391060,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.35 avg60=1.03 avg300=0.47 total=17763874\nfull avg10=0.35 avg60=1.03 avg300=0.47 total=16099277\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "gemma4:12b",
+        "size": 1275739503,
+        "size_vram": 1275739503
+      }
+    ],
+    "vram_used_bytes": 12610334720
+  },
+  {
+    "elapsed_seconds": 1793722120.3941493,
+    "memory_kib": {
+      "MemAvailable": 14587144,
+      "MemTotal": 24402376,
+      "SwapFree": 16392828,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.29 avg60=0.99 avg300=0.47 total=17764486\nfull avg10=0.29 avg60=0.99 avg300=0.47 total=16099889\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "gemma4:12b",
+        "size": 1275739503,
+        "size_vram": 1275739503
+      }
+    ],
+    "vram_used_bytes": 12610334720
+  },
+  {
+    "elapsed_seconds": 1793722121.3949974,
+    "memory_kib": {
+      "MemAvailable": 14584876,
+      "MemTotal": 24402376,
+      "SwapFree": 16395228,
+      "SwapTotal": 24401916
+    },
+    "memory_pressure": "some avg10=0.29 avg60=0.99 avg300=0.47 total=17764488\nfull avg10=0.29 avg60=0.99 avg300=0.47 total=16099890\n",
+    "models": [
+      {
+        "context_length": 131072,
+        "name": "gemma4:12b",
+        "size": 1275739503,
+        "size_vram": 1275739503
+      }
+    ],
+    "vram_used_bytes": 12610334720
+  }
+]

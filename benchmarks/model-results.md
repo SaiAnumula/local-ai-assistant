@@ -227,6 +227,8 @@ Fit on 24 GB at 128K, q8_0 KV:
 
 Result: Qwen stays. Gemma is fast but takes extra actions and fills in missing data, and Ministral needs tool-call fixes before it can be tested fairly.
 
+Sanitized RAM, swap, memory pressure, and VRAM samples are in [`results/2026-11-03-24gb/telemetry/`](../results/2026-11-03-24gb/telemetry/). The files omit local paths, process details, and private traces.
+
 ### Open items
 
 - Run the full suite with `medium` reasoning at 64K, the profile now in production.
